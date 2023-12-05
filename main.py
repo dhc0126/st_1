@@ -317,7 +317,8 @@ def lccjdb():
         d = dfstu[dfstu['姓名'] == i]
         d = d.sort_index()
         d = d.set_index(keys=['姓名'])
-        data2=data2.append(d)
+        # data2=data2.append(d)
+        data2 = pd.concat([data2, d], ignore_index=True)
     data0 = data2.transpose()
     data0=data0.sort_index()
     data4=data0.sub(data[clas], axis=0)
