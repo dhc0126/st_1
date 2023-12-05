@@ -393,7 +393,7 @@ def cgtj():
         # ste.st_pyecharts(c,height=500)
         g = c.render_embed()
         st.components.v1.html(g, height=700, width=900)
-    st.dataframe(data[['班级',‘姓名’,test]])
+    st.dataframe(data[['班级','姓名',test]])
     return
 
 
