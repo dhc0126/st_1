@@ -272,7 +272,9 @@ def lccjdb():
 
     data = pd.read_sql_query('select * from '+ subject, con)
 
-    data = data.groupby('班级').mean()
+    # data = data.groupby('班级').mean()
+    data = data.groupby('班级')
+    
     data = data.transpose()
     col1,col2=st.columns([1,2])
 
