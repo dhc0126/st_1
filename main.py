@@ -14,7 +14,7 @@ import pandas as pd
 import seaborn as sns
 import streamlit as st
 import streamlit_echarts as ste
-import plotly.figure_factory as ff
+# import plotly.figure_factory as ff
 from openpyxl import load_workbook
 from pyecharts import options as opts
 from pyecharts.charts import Line
