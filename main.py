@@ -225,7 +225,7 @@ def td(f, sheet):
     if st.button('导入到数据库'):
         st.write('Why hello there')
 
-        con = sqlite3.connect("data\Test.db")
+        con = sqlite3.connect("Test.db")
         cur = con.cursor()
         # cur.execute('ALTER TABLE '+subject+' ADD COLUMN '+ ddt +' integer ')
         try:
@@ -272,9 +272,8 @@ def lccjdb():
 
     data = pd.read_sql_query('select * from '+ subject, con)
 
-    # data = data.groupby('班级').mean()
-    data = data.groupby('班级')
-    
+    del data['姓名']
+    data = data.groupby('班级').mean()
     data = data.transpose()
     col1,col2=st.columns([1,2])
 
@@ -359,7 +358,7 @@ def cgtj():
     test = st.selectbox(
         '选择考试场次', col)
 
-    df = data[['班级', '姓名', test]]
+    df = data[['班级', test]]
     df = df.dropna()  # 清洗空值，很重要
 
     c = df.groupby('班级').mean()
